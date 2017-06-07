@@ -1,0 +1,20 @@
+<h1> Todos </h1>
+{{input class='title' value=newTodo}}
+<button type='submit' class="submit" {{action 'addTodo'}}> Add </button>
+
+<ul class="todos">
+  {{#each model as |todo|}}
+    <li>
+      <span class="todo-item {{if todo.completed 'completed'}}">
+        {{todo.text}} 
+      </span>
+      {{input type="checkbox" checked=todo.completed  }}
+    </li>
+  {{/each}}
+</ul>
+
+<div class="summaries">
+  Completed: <span class="completed">{{completed}}</span>
+  Remaining: <span class="remaining">{{remaining}}</span>
+  Total: <span class="total">{{model.length}}</span>
+</div>
